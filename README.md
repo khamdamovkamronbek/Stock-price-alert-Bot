@@ -66,3 +66,57 @@ Speeds up data collection using `ThreadPoolExecutor`.
 
 ```bash
 pip install pyTelegramBotAPI yfinance pandas matplotlib
+python bot.py
+Configuration
+
+Edit your Telegram bot token:
+
+TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+
+📂 Project Structure
+smashbot/
+│
+├── bot.py                 # Main bot script
+├── README.md              # Documentation
+└── charts/ (optional)     # Saved charts (if using)
+
+🧠 How it Works
+1. User selects a stock
+
+Bot fetches market data → generates chart → returns analysis.
+
+2. User sets an alert
+
+Alert stored in dictionary:
+
+user_alerts[chat_id][ticker] = [price1, price2, price3]
+
+3. Background thread checks alerts
+
+Every 60 seconds:
+
+Download latest price
+
+Compare against target
+
+Send alert if triggered
+
+4. Technical Analysis
+
+Bot computes:
+
+RSI(14)
+
+MA20 & MA50 crossover
+
+Volatility (std of returns)
+
+Market signal (Bullish, Bearish, Neutral)
+
+📝 License
+
+MIT License — free for modification & commercial use.
+
+👥 Authors
+
+Developed by Team 5 – Final Production Version.
